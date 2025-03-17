@@ -41,42 +41,53 @@ Plot the performance plot
 ### STEP 7:
 
 Evaluate the model with the testing data.
-
-## PROGRAM
-### Name:
-### Register Number:
-```python
+## program
+# Name: ajina joshpin
+# Register Number:2122232320008
 class NeuralNet(nn.Module):
-    def __init__(self):
+  def __init__(self):
         super().__init__()
-        #Include your code here
+        self.fc1=nn.Linear(1,8)
+        self.fc2=nn.Linear(8,10)
+        self.fc3=nn.Linear(10,1)
+        self.relu=nn.ReLU()
+        self.history={'loss':[]}
+  def forward(self,x):
+        x=self.relu(self.fc1(x))
+        x=self.relu(self.fc2(x))
+        x=self.fc3(x)
+        return x
 
+ai_brain=NeuralNet()
+criterion=nn.MSELoss()
+optimizer=optim.Adam(ai_brain.parameters(),lr=0.001)
 
+def train_model(ai_brain,X_train,y_train,criterion,optimizer,epochs=2000):
+  for epoch in range(epochs):
+    optimizer.zero_grad()
+    loss=criterion(ai_brain(X_train),y_train)
+    loss.backward()
+    optimizer.step()
 
-# Initialize the Model, Loss Function, and Optimizer
-
-
-
-def train_model(ai_brain, X_train, y_train, criterion, optimizer, epochs=2000):
-    #Include your code here
-
-
-
+    ai_brain.history['loss'].append(loss.item())
+    if epoch %200==0:
+      print(f'Epoch [{epoch}/{epochs}],loss:{loss.item():.6f}')
 ```
 ## Dataset Information
+![image](https://github.com/user-attachments/assets/33dcdff3-041e-4420-98a7-6c6dad8bbf24)
 
-Include screenshot of the dataset
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/4656b7e5-5e2d-4538-b03a-74d619cd0b73)
 
 ### Training Loss Vs Iteration Plot
+![image](https://github.com/user-attachments/assets/2490df5d-5e10-4428-9622-5e43ed065809)
 
 Include your plot here
 
 ### New Sample Data Prediction
+![image](https://github.com/user-attachments/assets/adb2877d-1cdf-4dbe-8039-8023d5f596d7)
 
-Include your sample input and output here
 
 ## RESULT
-
-Include your result here
+The neural network regression model was successfully trained and evaluated. The model demonstrated strong predictive performance on unseen data, with a low error rate.
