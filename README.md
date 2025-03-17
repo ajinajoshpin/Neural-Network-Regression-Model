@@ -44,6 +44,7 @@ Evaluate the model with the testing data.
 ## program
 # Name: ajina joshpin
 # Register Number:2122232320008
+'''
 class NeuralNet(nn.Module):
   def __init__(self):
         super().__init__()
@@ -72,6 +73,7 @@ def train_model(ai_brain,X_train,y_train,criterion,optimizer,epochs=2000):
     ai_brain.history['loss'].append(loss.item())
     if epoch %200==0:
       print(f'Epoch [{epoch}/{epochs}],loss:{loss.item():.6f}')
+```
 ```
 ## Dataset Information
 ![image](https://github.com/user-attachments/assets/33dcdff3-041e-4420-98a7-6c6dad8bbf24)
