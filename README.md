@@ -80,12 +80,10 @@ def train_model(ai_brain,X_train,y_train,criterion,optimizer,epochs=2000):
 
 
 ## OUTPUT
+### Training Loss Vs Iteration Plot
 ![image](https://github.com/user-attachments/assets/4656b7e5-5e2d-4538-b03a-74d619cd0b73)
 
-### Training Loss Vs Iteration Plot
-![image](https://github.com/user-attachments/assets/2490df5d-5e10-4428-9622-5e43ed065809)
 
-Include your plot here
 
 ### New Sample Data Prediction
 ![image](https://github.com/user-attachments/assets/adb2877d-1cdf-4dbe-8039-8023d5f596d7)
